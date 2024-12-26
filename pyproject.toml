@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "cifar10-project"
+version = "0.1.0"
+description = "MLOps"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fire = "^0.7.0"
+torch = "^2.5.0"
+torchvision = "^0.20.1"
+pytorch-lightning = "^2.5.0.post0"
+torchmetrics = "^1.6.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
