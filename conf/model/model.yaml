@@ -1,0 +1,7 @@
+image_size: 32
+num_classes: 10
+
+image_mean: [0.4914, 0.4822, 0.4465]
+image_std: [0.247, 0.243, 0.261]
+
+model_local_path: ../models

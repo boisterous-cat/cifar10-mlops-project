@@ -1,5 +1,6 @@
 import os
 
+import fire
 import pytorch_lightning as pl
 import torchvision
 import torchvision.transforms as transforms
@@ -85,4 +86,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    fire.Fire(main)

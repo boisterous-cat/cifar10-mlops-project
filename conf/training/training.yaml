@@ -1,0 +1,4 @@
+batch_size: 20
+n_epochs: 2
+num_workers: 11
+lr: 1e-3

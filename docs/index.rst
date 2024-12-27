@@ -12,4 +12,3 @@ Cifar10 documentation
 
    model
    trainer
-cd
