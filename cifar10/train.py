@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader
 from trainer import ImageClassifier
 
 
-def main():
+def main() -> None:
     # Define the training data transformations
     composed_train = transforms.Compose(
         [
