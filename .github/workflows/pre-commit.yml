@@ -20,5 +20,7 @@ jobs:
           poetry update
           poetry config virtualenvs.create false \
           && poetry install --no-interaction --no-cache --no-root --without dev
+      - name: Install pre-commit
+        run: pip install pre-commit
       - name: Run pre-commit
         run: pre-commit run --all-files
