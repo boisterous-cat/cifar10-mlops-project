@@ -17,7 +17,7 @@ from torch.utils.data import DataLoader
 from trainer import ImageClassifier
 
 
-def main(test_dir, checkpoint_name):
+def main(test_dir: str, checkpoint_name: str) -> None:
     # Define the test data transformations
     composed_test = transforms.Compose(
         [
