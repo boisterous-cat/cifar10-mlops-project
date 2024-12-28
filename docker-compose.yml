@@ -1,0 +1,14 @@
+services:
+  mlops_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mlops_cifar10_service
+    ports:
+      - "8000:8000"
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    driver: bridge
