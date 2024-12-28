@@ -2,15 +2,49 @@
 
 ## Структура проекта
 
-C:. │ .gitignore │ .pre-commit-config.yaml │ commands.py │ docker-compose.yml │
-Dockerfile │ LICENSE │ poetry.lock │ pyproject.toml │ README.md │ structure.txt
-│ ├── cifar10 │ ├── constants.py │ ├── infer.py │ ├── model.py │ ├── train.py │
-└── trainer.py │ ├── conf │ ├── config.yaml │ └── data_loading │ └──
-data_loading.yaml │ └── model │ └── model.yaml │ └── training │ └──
-training.yaml │ ├── data │ ├── .gitignore │ ├── test │ └── train │ ├── docs │
-├── .gitignore │ ├── conf.py │ ├── index.rst │ ├── make.bat │ ├── Makefile │ ├──
-model.rst │ ├── modules.rst │ └── trainer.rst │ └── models └── .gitignore
+```bash
+C:
+├── .gitignore
+├── .pre-commit-config.yaml
+├── commands.py
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+├── structure.txt
+├── cifar10
+├── constants.py
+├── infer.py
+├── model.py
+├── train.py
+├── trainer.py
+├── conf
+│   └── config.yaml
+├── data_loading
+│   └── data_loading.yaml
+├── model
+│   └── model.yaml
+├── training
+│   └── training.yaml
+├── data
+│   ├── .gitignore
+│   ├── test
+│   └── train
+├── docs
+│   ├── .gitignore
+│   ├── conf.py
+│   ├── index.rst
+│   ├── make.bat
+│   ├── Makefile
+│   ├── model.rst
+│   ├── modules.rst
+│   └── trainer.rst
+└── models
+    └── .gitignore
 
+```
 ## Формулировка задачи
 
 Основная цель заключается в исследовании новых технологий MLOps. Для этого я
