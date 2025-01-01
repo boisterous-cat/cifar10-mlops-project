@@ -35,4 +35,3 @@ ipython_config.py
 /.idea/modules.xml
 
 /.venv/
-/cifar10/lightning_logs/

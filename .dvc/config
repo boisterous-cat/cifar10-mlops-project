@@ -1,0 +1,13 @@
+[core]
+    remote = storage
+['remote "s3_remote"']
+    # remote for writing (not public)
+    url = s3://cifar10/dvc-data
+    endpointurl = https://storage.yandexcloud.net/
+    region = ru-central1
+    # provide crerentials here
+    # access_key_id = KEY_ID
+    # secret_access_key = ACCESS_KEY
+['remote "storage"']
+    # http remote for public usage of S3 (read-only)
+    url = http://cifar10.storage.yandexcloud.net/dvc-data
