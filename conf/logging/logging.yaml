@@ -1,0 +1,6 @@
+experiment_name: cifar10
+run_name: model-exp
+tracking_uri: http://127.0.0.1:8080
+save_dir: ${hydra.runtime.cwd}/logs/
+artifact_path: "resNet_5"
+registered_model_name: "simple resNet"

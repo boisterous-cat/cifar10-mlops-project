@@ -35,3 +35,6 @@ ipython_config.py
 /.idea/modules.xml
 
 /.venv/
+/mlartifacts/
+/mlruns/
+/lightning_logs/

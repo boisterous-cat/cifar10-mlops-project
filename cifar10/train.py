@@ -6,10 +6,17 @@ import torchvision
 import torchvision.transforms as transforms
 from hydra import compose, initialize
 from omegaconf import DictConfig
+from pytorch_lightning.loggers import MLFlowLogger
 from torch.utils.data import DataLoader
 
 from .model import MyResNet
 from .trainer import ImageClassifier
+
+
+# Function to get the current code version
+def get_code_version():
+    version = os.popen("git rev-parse --short HEAD").read().strip()
+    return version
 
 
 def main(config_name: str = "config", config_path: str | None = None) -> None:
@@ -21,6 +28,27 @@ def main(config_name: str = "config", config_path: str | None = None) -> None:
 
         # Pull train data from DVC
         subprocess.run(["dvc", "pull", "data/train"], check=True)
+
+        logger = MLFlowLogger(
+            save_dir=cfg["logging"]["save_dir"],
+            experiment_name=cfg["logging"]["experiment_name"],
+            tracking_uri=cfg["logging"]["tracking_uri"],
+            run_name=cfg["logging"]["run_name"],
+        )
+
+        # Log the code version
+        code_version = get_code_version()
+        logger.experiment.log_param(logger.run_id, "code_version", code_version)
+
+        # Log hyperparameters
+        logger.log_hyperparams(
+            {
+                "learning_rate": cfg["training"]["lr"],
+                "batch_size": cfg["training"]["batch_size"],
+                "model": cfg["logging"]["registered_model_name"],
+            }
+        )
+
         # Define the training data transformations
         composed_train = transforms.Compose(
             [
@@ -94,13 +122,8 @@ def main(config_name: str = "config", config_path: str | None = None) -> None:
             max_epochs=cfg["training"]["n_epochs"],
             accelerator="auto",
             devices="auto",
+            logger=logger,
             callbacks=[checkpoint_callback],
         )
 
         trainer.fit(module, train_loader, val_loader)
-
-
-# if __name__ == "__main__":
-#     # subprocess.run(["dvc", "pull", "data/train.dvc"])
-#     #fire.Fire(main)
-#     main()
